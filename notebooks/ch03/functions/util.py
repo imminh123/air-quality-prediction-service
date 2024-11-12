@@ -299,8 +299,10 @@ def backfill_predictions_for_monitoring(weather_fg, air_quality_df, monitor_fg, 
     features_df = weather_fg.read()
     features_df = features_df.sort_values(by=['date'], ascending=True)
     features_df = features_df.tail(10)
-    features_df['predicted_pm25'] = model.predict(features_df[['temperature_2m_mean', 'precipitation_sum', 'wind_speed_10m_max', 'wind_direction_10m_dominant']])
-    df = pd.merge(features_df, air_quality_df[['date','pm25','street','country']], on="date")
+
+    predict_params = pd.merge(features_df, air_quality_df[['date','pm25', 'pm25_lag1', 'pm25_lag2', 'pm25_lag3' 'street','country']], on="date")
+    features_df['predicted_pm25'] = model.predict(predict_params[['pm25_lag1', 'pm25_lag2', 'pm25_lag3', 'temperature_2m_mean', 'precipitation_sum', 'wind_speed_10m_max', 'wind_direction_10m_dominant']])
+    df = pd.merge(features_df, air_quality_df[['date','pm25', 'pm25_lag1', 'pm25_lag2', 'pm25_lag3' 'street','country']], on="date")
     df['days_before_forecast_day'] = 1
     hindcast_df = df
     df = df.drop('pm25', axis=1)
