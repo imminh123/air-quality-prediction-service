@@ -33,7 +33,7 @@ Download the registered model from Hopswork and perform batch inference to predi
 ### Model Monitoring & Accuracy Evaluation
 Monitor the performance of the model and assess prediction accuracy. We will asses the prediction before and after adding the lagged PM25 values feature.
 
-Without the lagged air quality, air quality is the feature with the highest weight on prediction.
+Without the lagged air quality, **temperature** is the feature with the highest weight on prediction.
 ![Feature importance](https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/feature_importance.png?raw=true)
 
 
@@ -52,7 +52,9 @@ To predict PM2.5 values for the next day while incorporating lagged features fro
 <img src="https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/new_lagged_aq.png?raw=true" alt="predict_pm25_with_lags function" width="400" />
 
 </br>
+
 **Functions to iteratively forecasting 1 day and use it as lagged value for subsequent predictions**
+
 <img src="https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/predict_pm25_with_lagged_aq.png?raw=true" alt="predict_pm25_with_lags function" width="400" />
 
 
