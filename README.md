@@ -45,5 +45,23 @@ Improve model accuracy by incorporating additional feature of **lagged air quali
 #### PM2.5 Prediction with Lag AQ Features 
 To predict PM2.5 values for the next day while incorporating lagged features from the previous 3 days, the process involves iteratively forecasting one day at a time and using the predicted PM2.5 values as the new lagged features for subsequent predictions.
 
+**New features for lagged air quality from 1 to 3 days**
+<img src="https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/new_lagged_aq.png?raw=true" alt="predict_pm25_with_lags function" width="400" />
+
+**Functions to iteratively forecasting 1 day and use it as lagged value for subsequent predictions**
+<img src="https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/predict_pm25_with_lagged_aq.png?raw=true" alt="predict_pm25_with_lags function" width="400" />
+
+
 #### Result
+With the introduction of new features related to lagged air quality, there are changes in feature importance. `pm25_lag1`, which represents the PM2.5 level from the previous day, now has the highest importance. `temperature_2m_mean` ranks second, approximate to `pm25_lag2`.
+
+![Feature important with lagged air quality](https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/new_feature_importance.png?raw=true)
+
+We also notice a significant improvement in predict vs actual prediction plot.
+
+![Predict vs actual plot](https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/pm25_hindcast.png?raw=true)
+
+The improvement is also showed by the 1-day hindcast plot comparing the predictions vs outcomes.
+
+![1-day hindcast Predictions vs Outcomes](https://github.com/imminh123/air-quality-prediction-service/blob/main/docs/air-quality/assets/img/pm25_hindcast_1day.png?raw=true)
 
