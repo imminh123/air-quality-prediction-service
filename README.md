@@ -5,6 +5,9 @@ The project is based on the book [Building Machine Learning Systems with a Featu
 
 ## Demo
 The predicted air quality of Hanoi, the lovely capital of Vietnam.
+
+📌 *The prediction pipeline is run, and the figure below is updated daily.*
+
 [Demo Url](https://imminh123.github.io/air-quality-prediction-service/air-quality/)
 
 ![PM25 Predicted (Log Scale) for Hanoi](https://github.com/imminh123/air-quality-prediction-service/blob/main/docs/air-quality/assets/img/pm25_forecast.png?raw=true)
@@ -45,9 +48,10 @@ Improve model accuracy by incorporating additional feature of **lagged air quali
 #### PM2.5 Prediction with Lag AQ Features 
 To predict PM2.5 values for the next day while incorporating lagged features from the previous 3 days, the process involves iteratively forecasting one day at a time and using the predicted PM2.5 values as the new lagged features for subsequent predictions.
 
-**New features for lagged air quality from 1 to 3 days**
+**New features for lagged air quality from 1 to 3 days**</br>
 <img src="https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/new_lagged_aq.png?raw=true" alt="predict_pm25_with_lags function" width="400" />
 
+</br>
 **Functions to iteratively forecasting 1 day and use it as lagged value for subsequent predictions**
 <img src="https://github.com/imminh123/air-quality-prediction-service/blob/main/notebooks/ch03/air_quality_model/images_historical/predict_pm25_with_lagged_aq.png?raw=true" alt="predict_pm25_with_lags function" width="400" />
 
